@@ -36,6 +36,10 @@ class GAResque extends Component
     public function enqueue($queue_name, $job_class, $param, $track_status = true){
         return \Resque::enqueue($queue_name, $job_class, $param, $track_status);
     }
+    
+    public function enqueueIn($time , $queue_name, $job_class, $param, $track_status = true){
+        return \ResqueScheduler::enqueueIn($time , $queue_name, $job_class, $param, $track_status);
+    }
 
     /**
      * Remove items of the specified queue
